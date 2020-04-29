@@ -1,0 +1,7 @@
+.navbar{
+    justify-content:space-evenly;
+}
+
+.navbar a.active{
+    color: darkturquoise;
+}
