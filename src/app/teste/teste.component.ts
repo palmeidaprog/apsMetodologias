@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teste.component.css']
 })
 export class TesteComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  project:boolean;
+  deliveryProject:boolean;
+  constructor() {
   }
 
-}
+
+    ngOnInit(): void {
+    }
+
+  }

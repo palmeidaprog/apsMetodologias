@@ -22,7 +22,7 @@ import { TesteComponent } from './teste/teste.component';
     XpComponent,
     KanbanComponent,
     CascataComponent,
-    TesteComponent
+    TesteComponent,
   ],
   imports: [
     BrowserModule,
