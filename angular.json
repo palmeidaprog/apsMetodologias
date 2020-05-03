@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "aps"
+  "defaultProject": "aps",
+  "cli": {
+    "analytics": "7e597b12-111c-45c7-a06e-7b331bd46c9a"
+  }
 }

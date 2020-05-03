@@ -12,6 +12,10 @@ import { XpComponent } from './xp/xp.component';
 import { KanbanComponent } from './kanban/kanban.component';
 import { CascataComponent } from './cascata/cascata.component';
 import { TesteComponent } from './teste/teste.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatRadioModule} from "@angular/material/radio";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { TesteComponent } from './teste/teste.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    MatCardModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

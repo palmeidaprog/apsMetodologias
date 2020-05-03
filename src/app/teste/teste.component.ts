@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-teste',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teste.component.css']
 })
 export class TesteComponent implements OnInit {
-  project:boolean;
-  deliveryProject:boolean;
+  segurancaVidaHumanaCtrl: FormControl = new FormControl(false);
+  project: boolean;
+  deliveryProject: boolean;
   constructor() {
   }
 
