@@ -1,15 +1,12 @@
 <div class="div-pai">
-  <mat-card class="z-dephth-5 slider-2 dir-esq-animation">
-    <mat-card-header>
+  <mat-card class="z-dephth-5 slider-2 dir-esq-animation centralize">
+    <mat-card-header class="centralize">
       <div mat-card-avatar class="card-image"></div>
       <mat-card-title>Descritivo do Projeto</mat-card-title>
-      <mat-card-subtitle>Responda conforme descrições do projeto
+      <mat-card-subtitle>Responda conforme características do projeto
       </mat-card-subtitle>
     </mat-card-header>
-
     <mat-card-content class="my-card-content">
-
-
     </mat-card-content>
   </mat-card>
 
@@ -42,10 +39,10 @@
           <div class="border-container">
             <div class="col s8 m6 l6">
               <h4>Você considera que sua equipe, dados os artefatos e mecanismos
-                tem a capacidade de ser autogerenciavel ?</h4>
+                tem a capacidade de ser auto-gerenciavel ?</h4>
             </div>
             <div style="margin-top: 20px; margin-left: 15px">
-              <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
+              <mat-radio-group [formControl]="equipeIndependenteCtrl" required>
                 <mat-radio-button value="true">Sim</mat-radio-button>
                 <br><br>
                 <mat-radio-button value="false">Não</mat-radio-button>
@@ -64,7 +61,7 @@
             recursos pre-requisitados, ele ainda tem funcionalidade na regra de negócio ?</h4>
           </div>
           <div style="margin-top: 20px; margin-left: 15px">
-            <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
+            <mat-radio-group [formControl]="utilizacaoParcialCtrl" required>
               <mat-radio-button value="true">Sim</mat-radio-button>
               <br><br>
               <mat-radio-button value="false">Não</mat-radio-button>
@@ -74,27 +71,73 @@
 
           <div class="border-container">
             <div class="col s8 m6 l6">
-              <h4>Sua equipe ?</h4>
+              <h4>Quão extenso é o periodo total do seu projeto ?</h4>
             </div>
             <div style="margin-top: 20px; margin-left: 15px">
-              <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
-                <mat-radio-button value="true">Sim</mat-radio-button>
-                <br><br>
-                <mat-radio-button value="false">Não</mat-radio-button>
-              </mat-radio-group>
+              <mat-select [formControl]="extensaoTempoCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let extensao of extensoes" value="extensao">
+                  {{extensao}}
+                </mat-option>
+              </mat-select>
             </div>
           </div>
         </div>
 
+<!--        3a coluna -->
         <div class="coluna">
           <div class="border-container">
             <div class="col s8 m6 l6">
-              <h4>Falhas de segurança, bugs inesperados e/ou falta de recursos
-                disponíveis em seu projeto pode acarretar em danos a vidas
-                humanas, de animais, ecologico ou de natureza maior ?</h4>
+              <h4>Dos pre-requistos de seu projeto, qual a probabilidade
+              deles modifcarem desde o início ao final do desenvolvimento ?</h4>
             </div>
             <div style="margin-top: 20px; margin-left: 15px">
-              <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
+              <mat-select [formControl]="preReqCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let preReq of preReqList" value="preReq">
+                  {{preReq}}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Qual o tamanho da sua equipe ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-select [formControl]="tamanhoEquipeCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let tamanho of tamanhos" value="tamanho">
+                  {{tamanho}}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>O projeto é multidisciplinar? Ou seja, durante o período de
+                desenvolvimento haverá atuação de profissionais fora do escopo de
+                TI ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-radio-group [formControl]="multidisciplinarCtrl" required>
+                <mat-radio-button value="true">Sim</mat-radio-button>
+                <br><br>
+                <mat-radio-button value="false">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4a coluna     -->
+        <div class="coluna">
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>O projeto é multidisciplinar? Ou seja, durante o período de
+              desenvolvimento haverá atuação de profissionais fora do escopo de
+              TI ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-radio-group [formControl]="multidisciplinarCtrl" required>
                 <mat-radio-button value="true">Sim</mat-radio-button>
                 <br><br>
                 <mat-radio-button value="false">Não</mat-radio-button>
@@ -104,110 +147,27 @@
 
           <div class="border-container">
             <div class="col s8 m6 l6">
-              <h4>Falhas de segurança, bugs inesperados e/ou falta de recursos
-                disponíveis em seu projeto pode acarretar em danos a vidas
-                humanas, de animais, ecologico ou de natureza maior ?</h4>
+              <h4>Sua equipe é capaz de lidar com o cliente/dono do produto ?
+               Ou há alguém que possa convergir os julgamentos e necessidades
+               do cliente para a equipe ?</h4>
             </div>
             <div style="margin-top: 20px; margin-left: 15px">
-              <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
+              <mat-radio-group [formControl]="donoDoProdutoCtrl" required>
                 <mat-radio-button value="true">Sim</mat-radio-button>
                 <br><br>
                 <mat-radio-button value="false">Não</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>
-
-
         </div>
 
 
       </div>
 
-
-
-      <div style="text-align: center;">
-        Marque apenas as alternativas que se assemelham ao estado atual do seu
-        projeto.
+      <div style="display: flex; justify-content: center; margin-top: 35px">
+        <button mat-button class="button">Enviar Formulario</button>
       </div>
-      <br/>
-      <br/>
-      1 - O projeto será implementado do zero
-      <input type="checkbox" (click)="project = true"
-             style="font-size: 110%;"/>
-      <br/>
-      <br/>
-      2 - O projeto precisa ser entregue em sua totalidade, não podendo entrar
-      em etapas de testes para ser aperfeiçoado
-      <input type="checkbox" (click)="deliveryProject = true"/>
-      <br/>
-      <br/>
-      3 - Precisa ter a noção do valor total do projeto de imediato?
-      <input type="checkbox"/>
 
-    </mat-card-content>
+     </mat-card-content>
   </mat-card>
-
-  <div style="font-size: x-large;text-align: center;">
-    <br/>
-    Formulario
-  </div>
-  <br/>
-  <br/>
-  <div class="forms">
-    <div style="text-align: center;">
-      Marque apenas as alternativas que se assemelham ao estado atual do seu
-      projeto.
-    </div>
-    <br/>
-    <br/>
-    1 - O projeto será implementado do zero
-    <input type="checkbox" (click)="project = true" style="font-size: 110%;"/>
-    <br/>
-    <br/>
-    2 - O projeto precisa ser entregue em sua totalidade, não podendo entrar
-    em etapas de testes para ser aperfeiçoado
-    <input type="checkbox" (click)="deliveryProject = true"/>
-    <br/>
-    <br/>
-    3 - Precisa ter a noção do valor total do projeto de imediato?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    4 - O projeto já está implementado, necessitando apenas de manutenções?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    5 - Pretendem inovar e adicionar melhorias em seu produto a medida que o
-    projeto vai avançando, onde as necessidades
-    do cliente podem mudar a qualquer momento?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    6 - As chances de mudanças no projeto são mínimas?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    7 - Necessita de um projeto de baixo risco?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    8 - As funcionalidades mínimas do projeto podem ser entregues aos clientes
-    antes do fechamento total do projeto?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    9 - Número de integrantes do projeto
-    <input type="number">
-    <br/>
-    <br/>
-    10 - O escopo do produto e o escopo do projeto é bem definido e
-    compreendido?
-    <input type="checkbox"/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-
-    <button mat-button class="button">Enviar Formulario</button>
-  </div>
 </div>

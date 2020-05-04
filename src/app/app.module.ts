@@ -16,6 +16,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatRadioModule} from "@angular/material/radio";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -28,16 +29,17 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     CascataComponent,
     TesteComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    MatCardModule,
-    MatRadioModule,
-    ReactiveFormsModule,
-    MatCheckboxModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        MatCardModule,
+        MatRadioModule,
+        ReactiveFormsModule,
+        MatCheckboxModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
