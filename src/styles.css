@@ -159,6 +159,23 @@ mat-card {
   background-size: cover;
 }
 
+.card-image-xp{
+  background-image: url('assets/xp.jpg');
+  background-size: cover;
+
+}
+
+.card-image-kanban{
+  background-image: url('assets/kanban.png');
+  background-size: cover;
+
+}
+.card-image-cascata{
+  background-image: url('assets/cascata.png');
+  background-size: cover;
+}
+
+
 .border-container {
   /*border: 0.1em rgba(0, 0, 0, 0.12) solid;*/
   border: 0.15em #b5838d solid;
