@@ -7,6 +7,7 @@ import { XpComponent } from './xp/xp.component';
 import { KanbanComponent } from './kanban/kanban.component';
 import { CascataComponent } from './cascata/cascata.component';
 import { TesteComponent } from './teste/teste.component';
+import {RupComponent} from './rup/rup.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:'devcomp',
     component: DevcompComponent
+  },
+  {
+    path:'rup',
+    component: RupComponent
   },
   {
     path: 'teste',

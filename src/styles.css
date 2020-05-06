@@ -175,6 +175,10 @@ mat-card {
   background-size: cover;
 }
 
+.card-image-rup {
+  background-image: url('assets/RUP.png');
+  background-size: cover;
+}
 
 .border-container {
   /*border: 0.1em rgba(0, 0, 0, 0.12) solid;*/
