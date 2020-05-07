@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {PreRequisito} from "../pre-requisito.enum";
-import {Tamanho} from "../tamanho.enum";
-import {Extensao} from "../extensao.enum";
-import {Pesos} from "../pesos";
+import {PreRequisito} from '../pre-requisito.enum';
+import {Tamanho} from '../tamanho.enum';
+import {Extensao} from '../extensao.enum';
+import {Pesos} from '../pesos';
+import {Pratica} from '../pratica.enum';
+import {Intensidade} from '../intensidade.enum';
+import {Probabilidade} from "../probabilidade.enum";
 
 @Component({
   selector: 'app-teste',
@@ -24,8 +27,26 @@ export class TesteComponent implements OnInit {
     Tamanho.GRANDE
   ];
 
+  intensidades: Array<Intensidade> = [
+    Intensidade.FRACA,
+    Intensidade.MEDIA,
+    Intensidade.FORTE
+  ];
+
+  praticas: Array<Pratica> = [
+    Pratica.TDD,
+    Pratica.PROGRAMACAO_PARES,
+    Pratica.PADRONIZACAO_CODIGO
+  ];
+
   extensoes: Array<Extensao> = [
     Extensao.CURTO, Extensao.MEDIA, Extensao.LONGO
+  ];
+
+  probabilidades: Array<Probabilidade> = [
+    Probabilidade.IMPROVAVEL,
+    Probabilidade.POSSIVEL,
+    Probabilidade.MUITO_PROVAVEL
   ];
 
   form: FormGroup;
@@ -37,6 +58,14 @@ export class TesteComponent implements OnInit {
   segurancaVidaHumanaCtrl: FormControl = new FormControl(false);
   preReqCtrl: FormControl = new FormControl('');
   equipeIndependenteCtrl: FormControl = new FormControl('');
+  praticaCtrl: FormControl = new FormControl(null);
+  comunicacaoCtrl: FormControl = new FormControl(null);
+  multiFocoCtrl: FormControl = new FormControl(null);
+  documentacaoCtrl: FormControl = new FormControl(null);
+  escritorioCtrl: FormControl = new FormControl(null);
+  linearCtrl: FormControl = new FormControl(null);
+  probabilidadeCtrl: FormControl = new FormControl(null);
+
   project: boolean;
   deliveryProject: boolean;
   private pesos: Pesos = new Pesos();
@@ -75,7 +104,7 @@ export class TesteComponent implements OnInit {
 
   test(): void {
     if (this.segurancaVidaHumanaCtrl.value) {
-      this.pesos.adiciona(10,10,10,0);
+      this.pesos.adiciona(10, 10, 10, 0);
     } else {
       this.pesos.adiciona(0, 0, 0, 100);
       console.log(this.pesos.cascata);
@@ -84,7 +113,7 @@ export class TesteComponent implements OnInit {
     }
 
     if (this.utilizacaoParcialCtrl.value) {
-      this.pesos.adiciona(20,20,20,0);
+      this.pesos.adiciona(20, 20, 20, 0);
     } else {
       this.pesos.kanban = this.pesos.scrum = this.pesos.xp = 0;
       this.pesos.adiciona(0, 0, 0, 100);
@@ -135,6 +164,15 @@ export class TesteComponent implements OnInit {
     } else {
       this.pesos.adiciona(0, 0, 0,  10);
     }
+
+    if (this.praticaCtrl.value === Pratica.TDD) {
+      this.pesos.adiciona(20, 10, 10,  0);
+    } else if (this.praticaCtrl.value === Pratica.PROGRAMACAO_PARES) {
+      this.pesos.adiciona(0, 0, 20,  0);
+    } else {
+      this.pesos.adiciona(0, 5, 0,  20);
+    }
+
     this.alert();
   }
 

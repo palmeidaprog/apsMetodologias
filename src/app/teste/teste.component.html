@@ -19,22 +19,24 @@
 
     <mat-card-content class="my-card-content">
       <div class="side-by-side">
-        <!-- Segurança-->
+
+        <!--1a coluna        -->
         <div class="coluna">
-        <div class="border-container">
-          <div class="col s8 m6 l6">
-            <h4>Falhas de segurança, bugs inesperados e/ou falta de recursos
-              disponíveis em seu projeto pode acarretar em danos a vidas
-              humanas, de animais, ecologico ou de natureza maior ?</h4>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Falhas de segurança, bugs inesperados e/ou falta de recursos
+                disponíveis em seu projeto pode acarretar em danos a vidas
+                humanas, de animais, ecologico ou de natureza maior ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
+                <mat-radio-button value="true">Sim</mat-radio-button>
+                <br><br>
+                <mat-radio-button value="false">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
           </div>
-          <div style="margin-top: 20px; margin-left: 15px">
-            <mat-radio-group [formControl]="segurancaVidaHumanaCtrl" required>
-              <mat-radio-button value="true">Sim</mat-radio-button>
-              <br><br>
-              <mat-radio-button value="false">Não</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
 
           <div class="border-container">
             <div class="col s8 m6 l6">
@@ -50,52 +52,16 @@
             </div>
           </div>
 
-
-        </div>
-
-        <div class="coluna">
-        <!-- Parcial       -->
-        <div class="border-container">
-          <div class="col s8 m6 l6">
-            <h4>Seu projeto é utilizavel parcialmente ? Ou seja, mesmo não tendo todos
-            recursos pre-requisitados, ele ainda tem funcionalidade na regra de negócio ?</h4>
-          </div>
-          <div style="margin-top: 20px; margin-left: 15px">
-            <mat-radio-group [formControl]="utilizacaoParcialCtrl" required>
-              <mat-radio-button value="true">Sim</mat-radio-button>
-              <br><br>
-              <mat-radio-button value="false">Não</mat-radio-button>
-            </mat-radio-group>
-          </div>
-        </div>
-
           <div class="border-container">
             <div class="col s8 m6 l6">
-              <h4>Quão extenso é o periodo total do seu projeto ?</h4>
+              <h4>É essencial que sua documentação seja impecável, ou pode-se procurar um balanço saudável entre documentação e produtividade ?</h4>
             </div>
             <div style="margin-top: 20px; margin-left: 15px">
-              <mat-select [formControl]="extensaoTempoCtrl" placeholder="Escolha uma opção">
-                <mat-option *ngFor="let extensao of extensoes" value="extensao">
-                  {{extensao}}
-                </mat-option>
-              </mat-select>
-            </div>
-          </div>
-        </div>
-
-<!--        3a coluna -->
-        <div class="coluna">
-          <div class="border-container">
-            <div class="col s8 m6 l6">
-              <h4>Dos pre-requistos de seu projeto, qual a probabilidade
-              deles modifcarem desde o início ao final do desenvolvimento ?</h4>
-            </div>
-            <div style="margin-top: 20px; margin-left: 15px">
-              <mat-select [formControl]="preReqCtrl" placeholder="Escolha uma opção">
-                <mat-option *ngFor="let preReq of preReqList" value="preReq">
-                  {{preReq}}
-                </mat-option>
-              </mat-select>
+              <mat-radio-group [formControl]="documentacaoCtrl" required>
+                <mat-radio-button value="true">Sim</mat-radio-button>
+                <br><br>
+                <mat-radio-button value="false">Não</mat-radio-button>
+              </mat-radio-group>
             </div>
           </div>
 
@@ -112,24 +78,128 @@
             </div>
           </div>
 
+        </div>
+
+<!--        2a coluna -->
+        <div class="coluna">
+
           <div class="border-container">
             <div class="col s8 m6 l6">
-              <h4>O projeto é multidisciplinar? Ou seja, durante o período de
-                desenvolvimento haverá atuação de profissionais fora do escopo de
-                TI ?</h4>
+              <h4>Seu projeto é utilizavel parcialmente ? Ou seja, mesmo não tendo todos
+              recursos pre-requisitados, ele ainda tem funcionalidade na regra de negócio ?</h4>
             </div>
             <div style="margin-top: 20px; margin-left: 15px">
-              <mat-radio-group [formControl]="multidisciplinarCtrl" required>
+              <mat-radio-group [formControl]="utilizacaoParcialCtrl" required>
                 <mat-radio-button value="true">Sim</mat-radio-button>
                 <br><br>
                 <mat-radio-button value="false">Não</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Quão extenso é o periodo total do seu projeto ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-select [formControl]="extensaoTempoCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let extensao of extensoes" value="extensao">
+                  {{extensao}}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Na sua equipe existe alguma prática usada para o
+                desenvolvimento do código ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-select [formControl]="praticaCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let pratica of praticas" value="pratica">
+                  {{pratica}}
+                </mat-option>
+            </mat-select>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Nos projetos desenvolvidos por sua equipe, as tarefas precisam obrigatoriamente ser realizadas de forma sequencial e linear ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-radio-group [formControl]="linearCtrl" required>
+                <mat-radio-button value="true">Sim</mat-radio-button>
+                <br><br>
+                <mat-radio-button value="false">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+
+        </div>
+
+<!--        3a coluna -->
+        <div class="coluna">
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Dos pre-requistos de seu projeto, qual a probabilidade
+              deles modifcarem desde o início ao final do desenvolvimento ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-select [formControl]="preReqCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let preReq of preReqList" value="preReq">
+                  {{preReq}}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Qual o grau de comunicação da sua equipe ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-select [formControl]="comunicacaoCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let intensidade of intensidades" value="intensidade">
+                  {{intensidade}}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Seu projeto necessita de múltiplos focos de atuação, como manutenção ou produção de mais de um produto ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-radio-group [formControl]="multiFocoCtrl" required>
+                <mat-radio-button value="true">Sim</mat-radio-button>
+                <br><br>
+                <mat-radio-button value="false">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Pelo o que você percebe da cultura da sua empresa e da sua equipe, como você avalia a capacidade da sua equipe mudar para uma metodologia que exige mais flexibilidade dos membros ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-select [formControl]="probabilidadeCtrl" placeholder="Escolha uma opção">
+                <mat-option *ngFor="let probabilidade of probabilidades" value="probabilidade">
+                  {{probabilidade}}
+                </mat-option>
+              </mat-select>
+            </div>
+          </div>
+
         </div>
 
         <!-- 4a coluna     -->
         <div class="coluna">
+
           <div class="border-container">
             <div class="col s8 m6 l6">
               <h4>O projeto é multidisciplinar? Ou seja, durante o período de
@@ -159,6 +229,20 @@
               </mat-radio-group>
             </div>
           </div>
+
+          <div class="border-container">
+            <div class="col s8 m6 l6">
+              <h4>Os membros do time do projeto trabalham juntos no mesmo local (ex: escritório) ?</h4>
+            </div>
+            <div style="margin-top: 20px; margin-left: 15px">
+              <mat-radio-group [formControl]="escritorioCtrl" required>
+                <mat-radio-button value="true">Sim</mat-radio-button>
+                <br><br>
+                <mat-radio-button value="false">Não</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+
         </div>
 
 
