@@ -3,6 +3,12 @@ import {Pratica} from "./pratica.enum";
 export class Opcao {
   escolha: string;
   pontos: number;
+
+  constructor(escolha: string, pontos: number) {
+    this.escolha = escolha;
+    this.pontos = pontos;
+  }
+
 }
 
 export class Metodologia {

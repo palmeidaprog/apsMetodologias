@@ -7,6 +7,8 @@ import {Pesos} from '../pesos';
 import {Pratica} from '../pratica.enum';
 import {Intensidade} from '../intensidade.enum';
 import {Probabilidade} from '../probabilidade.enum';
+import {Metodologia, Opcao} from "../metodologia";
+import {Booleana} from "../booleana.enum";
 
 @Component({
   selector: 'app-teste',
@@ -70,6 +72,12 @@ export class TesteComponent implements OnInit {
   project: boolean;
   deliveryProject: boolean;
   private pesos: Pesos = new Pesos();
+  private kanban: Metodologia = new Metodologia('Kanban');
+  private xp: Metodologia = new Metodologia('XP');
+  private cascata: Metodologia = new Metodologia('Cascata');
+  private scrum: Metodologia = new Metodologia('Scrum');
+  private rup: Metodologia = new Metodologia('RUP');
+  private componentes: Metodologia = new Metodologia('Desenvolvimento em Componentes');
 
   constructor() { }
 
@@ -175,6 +183,78 @@ export class TesteComponent implements OnInit {
     }
 
     this.alert();
+  }
+
+  private inicializaPesos(): void {
+    this.pesosKanban();
+  }
+
+  private pesosKanban(): void {
+    this.kanban.pratica = [
+      new Opcao(Pratica.TDD, 10),
+      new Opcao(Pratica.PROGRAMACAO_PARES, 10),
+      new Opcao(Pratica.PADRONIZACAO_CODIGO, 10)
+    ];
+
+    this.kanban.comunicacao = [
+      new Opcao(Intensidade.FRACA, 10),
+      new Opcao(Intensidade.MEDIA, 10),
+      new Opcao(Intensidade.FORTE, 5)
+    ];
+
+    this.kanban.segurancaVidaHumana = [
+      new Opcao(Booleana.SIM, 0),
+      new Opcao(Booleana.NAO, 5)
+    ];
+
+    this.kanban.equipeIndependente = [
+      new Opcao(Booleana.SIM, 10),
+      new Opcao(Booleana.NAO, 5)
+    ];
+
+    this.kanban.utilizacaoParcial = [
+      new Opcao(Booleana.SIM, 10),
+      new Opcao(Booleana.NAO, 5)
+    ];
+
+    this.kanban.extensaoTempo = [
+      new Opcao(Extensao.CURTO, 20),
+      new Opcao(Extensao.MEDIA, 10),
+      new Opcao(Extensao.LONGO, 10)
+    ];
+
+    this.kanban.preReq = [
+      new Opcao(PreRequisito.QUASE_ESTATICO, 10),
+      new Opcao(PreRequisito.POUCO, 10),
+      new Opcao(PreRequisito.MODERADO, 10),
+      new Opcao(PreRequisito.VOLTATIL, 10)
+    ];
+
+    this.kanban.tamanhoEquipe = [
+      new Opcao(Tamanho.PEQUENA, 10),
+      new Opcao(Tamanho.MEDIA, 10),
+      new Opcao(Tamanho.GRANDE, 10)
+    ];
+
+    this.kanban.multidisciplinar = [
+      new Opcao(Booleana.SIM, 20),
+      new Opcao(Booleana.NAO, 10)
+    ];
+
+    this.kanban.donoDoProduto = [
+      new Opcao(Booleana.SIM, 10),
+      new Opcao(Booleana.NAO, 10)
+    ];
+
+    this.kanban.multiFoco = [
+      new Opcao(Booleana.SIM, 20),
+      new Opcao(Booleana.NAO, 10)
+    ];
+
+    this.kanban.documentacao = [
+      new Opcao(Booleana.SIM, 0),
+      new Opcao(Booleana.NAO, 10)
+    ];
   }
 
   private alert(): void {
