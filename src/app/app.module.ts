@@ -19,6 +19,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
 import { DevcompComponent } from './devcomp/devcomp.component';
 import { RupComponent } from './rup/rup.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -33,17 +35,19 @@ import { RupComponent } from './rup/rup.component';
     DevcompComponent,
     RupComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MaterialModule,
-        MatCardModule,
-        MatRadioModule,
-        ReactiveFormsModule,
-        MatCheckboxModule,
-        MatSelectModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatCardModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatExpansionModule,
+    MatMenuModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

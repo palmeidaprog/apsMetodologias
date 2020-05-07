@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {PreRequisito} from '../pre-requisito.enum';
 import {Tamanho} from '../tamanho.enum';
@@ -6,7 +6,7 @@ import {Extensao} from '../extensao.enum';
 import {Pesos} from '../pesos';
 import {Pratica} from '../pratica.enum';
 import {Intensidade} from '../intensidade.enum';
-import {Probabilidade} from "../probabilidade.enum";
+import {Probabilidade} from '../probabilidade.enum';
 
 @Component({
   selector: 'app-teste',
@@ -14,6 +14,7 @@ import {Probabilidade} from "../probabilidade.enum";
   styleUrls: ['./teste.component.css']
 })
 export class TesteComponent implements OnInit {
+
   preReqList: Array<PreRequisito> = [
     PreRequisito.QUASE_ESTATICO,
     PreRequisito.POUCO,
@@ -178,8 +179,10 @@ export class TesteComponent implements OnInit {
 
   private alert(): void {
     const rank = this.pesos.generateRank();
-    window.alert( `Sua metologia escolhida é ${rank[0].nome} com ${rank[0].pontos.toFixed(2)}%. ` +
+    window.alert(`Sua metologia escolhida é ${rank[0].nome} com ${rank[0].pontos.toFixed(2)}%. ` +
       `Seguido de ${rank[1].nome} (${rank[1].pontos.toFixed(2)}%),` +
       `${rank[2].nome} (${rank[2].pontos.toFixed(2)}%). ${rank[3].nome} (${rank[3].pontos.toFixed(2)}%)`);
   }
+
+
 }

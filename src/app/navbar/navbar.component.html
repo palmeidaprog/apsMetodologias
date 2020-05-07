@@ -2,11 +2,22 @@
   <mat-toolbar class="navbar" color="primary">
     <a mat-button routerLink="/teste" routerLinkActive="active">Teste</a>
     <a mat-button routerLink="/pds" routerLinkActive="active">Processos de desenvolvimento de software</a>
-    <a mat-button routerLink="/scrum" routerLinkActive="active">Scrum</a>
-    <a mat-button routerLink="/xp" routerLinkActive="active">Xp</a>
-    <a mat-button routerLink="/kanban" routerLinkActive="active">kanban</a>
-    <a mat-button routerLink="/cascata" routerLinkActive="active">Cascata</a>
-    <a mat-button routerLink="/devcomp" routerLinkActive="active">Desenvolvimento Componente</a>
-    <a mat-button routerLink="/rup" routerLinkActive="active">RUP</a>
+    <button mat-button [matMenuTriggerFor]="menu1"
+            (mouseenter)="openMyMenu()">Metodologias</button>
+    <mat-menu #menu1="matMenu" overlapTrigger="false">
+    <span (mouseleave)="closeMyMenu()">
+
+      <button mat-menu-item routerLink="/scrum" routerLinkActive="active">Scrum</button>
+      <button mat-menu-item routerLink="/xp" routerLinkActive="active">Xp</button>
+      <button mat-menu-item routerLink="/kanban" routerLinkActive="active">kanban</button>
+      <button mat-menu-item routerLink="/cascata" routerLinkActive="active">Cascata</button>
+      <button mat-menu-item routerLink="/devcomp" routerLinkActive="active">Desenvolvimento Componente</button>
+      <button mat-menu-item routerLink="/rup" routerLinkActive="active">RUP</button>
+    </span>
+
+    </mat-menu>
+    <a mat-button routerLink="/pds" routerLinkActive="active">Apresentação</a>
+
+
   </mat-toolbar>
 </div>
