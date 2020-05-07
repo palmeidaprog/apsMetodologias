@@ -17,6 +17,8 @@ import {MatRadioModule} from "@angular/material/radio";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSelectModule} from "@angular/material/select";
+import { DevcompComponent } from './devcomp/devcomp.component';
+import { RupComponent } from './rup/rup.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import {MatSelectModule} from "@angular/material/select";
     KanbanComponent,
     CascataComponent,
     TesteComponent,
+    DevcompComponent,
+    RupComponent,
   ],
     imports: [
         BrowserModule,
