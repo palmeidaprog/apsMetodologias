@@ -8,6 +8,7 @@ import { KanbanComponent } from './kanban/kanban.component';
 import { CascataComponent } from './cascata/cascata.component';
 import { TesteComponent } from './teste/teste.component';
 import {RupComponent} from './rup/rup.component';
+import {ResultadoComponent} from "./resultado/resultado.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'teste',
     component: TesteComponent
+  },
+  {
+    path: 'resultado',
+    component: ResultadoComponent
   },
   {
     path: '',

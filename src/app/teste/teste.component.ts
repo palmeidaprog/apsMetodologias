@@ -9,6 +9,7 @@ import {Intensidade} from '../intensidade.enum';
 import {Probabilidade} from '../probabilidade.enum';
 import {Metodologia, Opcao} from "../metodologia";
 import {Booleana} from "../booleana.enum";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-teste',
@@ -78,8 +79,14 @@ export class TesteComponent implements OnInit {
   private scrum: Metodologia = new Metodologia('Scrum');
   private rup: Metodologia = new Metodologia('RUP');
   private componentes: Metodologia = new Metodologia('Desenvolvimento em Componentes');
+  private metodologias: Array<Metodologia> = [
+    this.kanban, this.xp, this.cascata, this.scrum, this.componentes,
+    this.rup
+  ];
 
-  constructor() { }
+  constructor(private router: Router) {
+
+  }
 
 
   ngOnInit(): void {
@@ -721,6 +728,8 @@ export class TesteComponent implements OnInit {
       !this.utilizacaoParcialCtrl.value) {
       this.cascata.pontos = 100;
       this.cascata.percentual = 100;
+      this.calculaPercentuais();
+      this.router.navigate(['/resultado']);
       return;
     }
 
@@ -822,12 +831,19 @@ export class TesteComponent implements OnInit {
     this.rup.probabilidadeResposta = this.probabilidadeCtrl.value;
     this.cascata.probabilidadeResposta = this.probabilidadeCtrl.value;
 
-    return this.calculate();
+    this.calculaPercentuais();
+    this.router.navigate(['/resultado']);
   }
 
+  calculaPercentuais(): void {
+    const total = this.kanban.pontos + this.xp.pontos + this.cascata.pontos
+      + this.scrum.pontos + this.componentes.pontos + this.rup.pontos;
 
-
-
+    this.metodologias.forEach(metodologia => {
+      metodologia.percentual = metodologia.pontos / total * 100;
+    });
+    localStorage.setItem('resultado', JSON.stringify(this.metodologias));
+  }
 
   private converteBoolean(valor: boolean): Booleana {
     return valor ? Booleana.SIM : Booleana.NAO;

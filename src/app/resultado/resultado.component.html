@@ -1,0 +1,26 @@
+<div class="div-pai">
+  <mat-card class="z-dephth-5 slider-2 dir-esq-animation centralize">
+    <mat-card-header class="centralize">
+      <div mat-card-avatar class="card-image"></div>
+      <mat-card-title>Resultado</mat-card-title>
+      <mat-card-subtitle>e melhorias
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="my-card-content">
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="z-dephth-5 slider-2 esq-dir-animation">
+    <mat-card-content class="my-card-content">
+      <br>
+      <div class="centralize">
+        <ul>
+          <li><h3 *ngFor="let metodologia of resultado">{{metodologia.nome}}
+            {{metodologia.percentual}}</h3></li>
+        </ul>
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>
