@@ -9,6 +9,7 @@ import { CascataComponent } from './cascata/cascata.component';
 import { TesteComponent } from './teste/teste.component';
 import {RupComponent} from './rup/rup.component';
 import {ResultadoComponent} from "./resultado/resultado.component";
+import {ApresentacaoComponent} from './apresentacao/apresentacao.component'
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: '',
     component: PdsComponent
+  },
+  {
+    path:'apresentacao',
+    component:ApresentacaoComponent
   }
 ];
 

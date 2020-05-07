@@ -22,6 +22,7 @@ import { RupComponent } from './rup/rup.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatMenuModule} from "@angular/material/menu";
 import { ResultadoComponent } from './resultado/resultado.component';
+import { ApresentacaoComponent } from './apresentacao/apresentacao.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ResultadoComponent } from './resultado/resultado.component';
     TesteComponent,
     DevcompComponent,
     RupComponent,
+    ApresentacaoComponent,
     ResultadoComponent,
   ],
   imports: [
