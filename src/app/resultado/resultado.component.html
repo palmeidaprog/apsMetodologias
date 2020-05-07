@@ -15,10 +15,9 @@
       <br>
       <div class="centralize">
         <ul>
-          <li><h3 *ngFor="let metodologia of resultado">{{metodologia.nome}}
-            {{metodologia.percentual}}</h3></li>
+          <li style="color: black" *ngFor="let resultado of resultados">{{resultado.nome}}
+            {{resultado.percentual}}</li>
         </ul>
-
       </div>
 
     </mat-card-content>

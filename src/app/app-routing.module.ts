@@ -8,7 +8,7 @@ import { KanbanComponent } from './kanban/kanban.component';
 import { CascataComponent } from './cascata/cascata.component';
 import { TesteComponent } from './teste/teste.component';
 import {RupComponent} from './rup/rup.component';
-import {ResultadoComponent} from "./resultado/resultado.component";
+import {ResultadoComponent} from './resultado/resultado.component';
 import {ApresentacaoComponent} from './apresentacao/apresentacao.component'
 
 const routes: Routes = [

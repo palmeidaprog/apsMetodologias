@@ -724,12 +724,12 @@ export class TesteComponent implements OnInit {
     this.inicializaPesos();
     this.resetaPontos();
 
-    if (this.segurancaVidaHumanaCtrl.value ||
-      !this.utilizacaoParcialCtrl.value) {
+    if (this.segurancaVidaHumanaCtrl.value === 'Sim' ||
+      this.utilizacaoParcialCtrl.value === 'Não') {
       this.cascata.pontos = 100;
       this.cascata.percentual = 100;
       this.calculaPercentuais();
-      this.router.navigate(['/resultado']);
+      this.mostraResultado();
       return;
     }
 
@@ -747,26 +747,26 @@ export class TesteComponent implements OnInit {
     this.rup.comunicacaoResposta = this.comunicacaoCtrl.value;
     this.cascata.comunicacaoResposta = this.comunicacaoCtrl.value;
 
-    this.kanban.segurancaVidaHumanaResposta = this.segurancaVidaHumanaCtrl.value;
-    this.scrum.segurancaVidaHumanaResposta = this.segurancaVidaHumanaCtrl.value;
-    this.xp.segurancaVidaHumanaResposta = this.segurancaVidaHumanaCtrl.value;
-    this.componentes.segurancaVidaHumanaResposta = this.segurancaVidaHumanaCtrl.value;
-    this.rup.segurancaVidaHumanaResposta = this.segurancaVidaHumanaCtrl.value;
-    this.cascata.segurancaVidaHumanaResposta = this.segurancaVidaHumanaCtrl.value;
+    this.kanban.segurancaVidaHumanaResposta = this.converteBoolean(this.segurancaVidaHumanaCtrl.value);
+    this.scrum.segurancaVidaHumanaResposta = this.converteBoolean(this.segurancaVidaHumanaCtrl.value);
+    this.xp.segurancaVidaHumanaResposta = this.converteBoolean(this.segurancaVidaHumanaCtrl.value);
+    this.componentes.segurancaVidaHumanaResposta = this.converteBoolean(this.segurancaVidaHumanaCtrl.value);
+    this.rup.segurancaVidaHumanaResposta = this.converteBoolean(this.segurancaVidaHumanaCtrl.value);
+    this.cascata.segurancaVidaHumanaResposta = this.converteBoolean(this.segurancaVidaHumanaCtrl.value);
 
-    this.kanban.equipeIndependenteResposta = this.equipeIndependenteCtrl.value;
-    this.scrum.equipeIndependenteResposta = this.equipeIndependenteCtrl.value;
-    this.xp.equipeIndependenteResposta = this.equipeIndependenteCtrl.value;
-    this.componentes.equipeIndependenteResposta = this.equipeIndependenteCtrl.value;
-    this.rup.equipeIndependenteResposta = this.equipeIndependenteCtrl.value;
-    this.cascata.equipeIndependenteResposta = this.equipeIndependenteCtrl.value;
+    this.kanban.equipeIndependenteResposta = this.converteBoolean(this.equipeIndependenteCtrl.value);
+    this.scrum.equipeIndependenteResposta = this.converteBoolean(this.equipeIndependenteCtrl.value);
+    this.xp.equipeIndependenteResposta = this.converteBoolean(this.equipeIndependenteCtrl.value);
+    this.componentes.equipeIndependenteResposta = this.converteBoolean(this.equipeIndependenteCtrl.value);
+    this.rup.equipeIndependenteResposta = this.converteBoolean(this.equipeIndependenteCtrl.value);
+    this.cascata.equipeIndependenteResposta = this.converteBoolean(this.equipeIndependenteCtrl.value);
 
-    this.kanban.utilizacaoParcialResposta = this.utilizacaoParcialCtrl.value;
-    this.scrum.utilizacaoParcialResposta = this.utilizacaoParcialCtrl.value;
-    this.xp.utilizacaoParcialResposta = this.utilizacaoParcialCtrl.value;
-    this.componentes.utilizacaoParcialResposta = this.utilizacaoParcialCtrl.value;
-    this.rup.utilizacaoParcialResposta = this.utilizacaoParcialCtrl.value;
-    this.cascata.utilizacaoParcialResposta = this.utilizacaoParcialCtrl.value;
+    this.kanban.utilizacaoParcialResposta = this.converteBoolean(this.utilizacaoParcialCtrl.value);
+    this.scrum.utilizacaoParcialResposta = this.converteBoolean(this.utilizacaoParcialCtrl.value);
+    this.xp.utilizacaoParcialResposta = this.converteBoolean(this.utilizacaoParcialCtrl.value);
+    this.componentes.utilizacaoParcialResposta = this.converteBoolean(this.utilizacaoParcialCtrl.value);
+    this.rup.utilizacaoParcialResposta = this.converteBoolean(this.utilizacaoParcialCtrl.value);
+    this.cascata.utilizacaoParcialResposta = this.converteBoolean(this.utilizacaoParcialCtrl.value);
 
     this.kanban.extensaoTempoResposta = this.extensaoTempoCtrl.value;
     this.scrum.extensaoTempoResposta = this.extensaoTempoCtrl.value;
@@ -787,42 +787,49 @@ export class TesteComponent implements OnInit {
     this.xp.tamanhoEquipeResposta = this.tamanhoEquipeCtrl.value;
     this.componentes.tamanhoEquipeResposta = this.tamanhoEquipeCtrl.value;
     this.rup.tamanhoEquipeResposta = this.tamanhoEquipeCtrl.value;
-    this.cascata.tamanhoEquipeResposta = this.tamanhoEquipeCtrl.value
+    this.cascata.tamanhoEquipeResposta = this.tamanhoEquipeCtrl.value;
 
-    this.kanban.donoDoProdutoResposta = this.donoDoProdutoCtrl.value;
-    this.scrum.donoDoProdutoResposta = this.donoDoProdutoCtrl.value;
-    this.xp.donoDoProdutoResposta = this.donoDoProdutoCtrl.value;
-    this.componentes.donoDoProdutoResposta = this.donoDoProdutoCtrl.value;
-    this.rup.donoDoProdutoResposta = this.donoDoProdutoCtrl.value;
-    this.cascata.donoDoProdutoResposta = this.donoDoProdutoCtrl.value;
+    this.kanban.multidisciplinarResposta = this.converteBoolean(this.multidisciplinarCtrl.value);
+    this.scrum.multidisciplinarResposta = this.converteBoolean(this.multidisciplinarCtrl.value);
+    this.xp.multidisciplinarResposta = this.converteBoolean(this.multidisciplinarCtrl.value);
+    this.componentes.multidisciplinarResposta = this.converteBoolean(this.multidisciplinarCtrl.value);
+    this.rup.multidisciplinarResposta = this.converteBoolean(this.multidisciplinarCtrl.value);
+    this.cascata.multidisciplinarResposta = this.converteBoolean(this.multidisciplinarCtrl.value);
 
-    this.kanban.multiFocoResposta = this.multiFocoCtrl.value;
-    this.scrum.multiFocoResposta = this.multiFocoCtrl.value;
-    this.xp.multiFocoResposta = this.multiFocoCtrl.value;
-    this.componentes.multiFocoResposta = this.multiFocoCtrl.value;
-    this.rup.multiFocoResposta = this.multiFocoCtrl.value;
-    this.cascata.multiFocoResposta = this.multiFocoCtrl.value;
+    this.kanban.donoDoProdutoResposta = this.converteBoolean(this.donoDoProdutoCtrl.value);
+    this.scrum.donoDoProdutoResposta = this.converteBoolean(this.donoDoProdutoCtrl.value);
+    this.xp.donoDoProdutoResposta = this.converteBoolean(this.donoDoProdutoCtrl.value);
+    this.componentes.donoDoProdutoResposta = this.converteBoolean(this.donoDoProdutoCtrl.value);
+    this.rup.donoDoProdutoResposta = this.converteBoolean(this.donoDoProdutoCtrl.value);
+    this.cascata.donoDoProdutoResposta = this.converteBoolean(this.donoDoProdutoCtrl.value);
 
-    this.kanban.documentacaoResposta = this.documentacaoCtrl.value;
-    this.scrum.documentacaoResposta = this.documentacaoCtrl.value;
-    this.xp.documentacaoResposta = this.documentacaoCtrl.value;
-    this.componentes.documentacaoResposta = this.documentacaoCtrl.value;
-    this.rup.documentacaoResposta = this.documentacaoCtrl.value;
-    this.cascata.documentacaoResposta = this.documentacaoCtrl.value;
+    this.kanban.multiFocoResposta = this.converteBoolean(this.multiFocoCtrl.value);
+    this.scrum.multiFocoResposta = this.converteBoolean(this.multiFocoCtrl.value);
+    this.xp.multiFocoResposta = this.converteBoolean(this.multiFocoCtrl.value);
+    this.componentes.multiFocoResposta = this.converteBoolean(this.multiFocoCtrl.value);
+    this.rup.multiFocoResposta = this.converteBoolean(this.multiFocoCtrl.value);
+    this.cascata.multiFocoResposta = this.converteBoolean(this.multiFocoCtrl.value);
 
-    this.kanban.escritorioResposta = this.escritorioCtrl.value;
-    this.scrum.escritorioResposta = this.escritorioCtrl.value;
-    this.xp.escritorioResposta = this.escritorioCtrl.value;
-    this.componentes.escritorioResposta = this.escritorioCtrl.value;
-    this.rup.escritorioResposta = this.escritorioCtrl.value;
-    this.cascata.escritorioResposta = this.escritorioCtrl.value;
+    this.kanban.documentacaoResposta = this.converteBoolean(this.documentacaoCtrl.value);
+    this.scrum.documentacaoResposta = this.converteBoolean(this.documentacaoCtrl.value);
+    this.xp.documentacaoResposta = this.converteBoolean(this.documentacaoCtrl.value);
+    this.componentes.documentacaoResposta = this.converteBoolean(this.documentacaoCtrl.value);
+    this.rup.documentacaoResposta = this.converteBoolean(this.documentacaoCtrl.value);
+    this.cascata.documentacaoResposta = this.converteBoolean(this.documentacaoCtrl.value);
 
-    this.kanban.linearResposta = this.linearCtrl.value;
-    this.scrum.linearResposta = this.linearCtrl.value;
-    this.xp.linearResposta = this.linearCtrl.value;
-    this.componentes.linearResposta = this.linearCtrl.value;
-    this.rup.linearResposta = this.linearCtrl.value;
-    this.cascata.linearResposta = this.linearCtrl.value;
+    this.kanban.escritorioResposta = this.converteBoolean(this.escritorioCtrl.value);
+    this.scrum.escritorioResposta = this.converteBoolean(this.escritorioCtrl.value);
+    this.xp.escritorioResposta = this.converteBoolean(this.escritorioCtrl.value);
+    this.componentes.escritorioResposta = this.converteBoolean(this.escritorioCtrl.value);
+    this.rup.escritorioResposta = this.converteBoolean(this.escritorioCtrl.value);
+    this.cascata.escritorioResposta = this.converteBoolean(this.escritorioCtrl.value);
+
+    this.kanban.linearResposta = this.converteBoolean(this.linearCtrl.value);
+    this.scrum.linearResposta = this.converteBoolean(this.linearCtrl.value);
+    this.xp.linearResposta = this.converteBoolean(this.linearCtrl.value);
+    this.componentes.linearResposta = this.converteBoolean(this.linearCtrl.value);
+    this.rup.linearResposta = this.converteBoolean(this.linearCtrl.value);
+    this.cascata.linearResposta = this.converteBoolean(this.linearCtrl.value);
 
     this.kanban.probabilidadeResposta = this.probabilidadeCtrl.value;
     this.scrum.probabilidadeResposta = this.probabilidadeCtrl.value;
@@ -832,7 +839,7 @@ export class TesteComponent implements OnInit {
     this.cascata.probabilidadeResposta = this.probabilidadeCtrl.value;
 
     this.calculaPercentuais();
-    this.router.navigate(['/resultado']);
+    // this.router.navigate(['/resultado']);
   }
 
   calculaPercentuais(): void {
@@ -843,10 +850,14 @@ export class TesteComponent implements OnInit {
       metodologia.percentual = metodologia.pontos / total * 100;
     });
     localStorage.setItem('resultado', JSON.stringify(this.metodologias));
+    this.mostraResultado();
   }
 
-  private converteBoolean(valor: boolean): Booleana {
-    return valor ? Booleana.SIM : Booleana.NAO;
+  private converteBoolean(valor: string): Booleana {
+    return valor === 'Sim' ? Booleana.SIM : Booleana.NAO;
+    // const msg = valor ? Booleana.SIM : Booleana.NAO;
+    // console.log(msg);
+    // return valor ? Booleana.SIM : Booleana.NAO;
   }
 
   private alert(): void {
@@ -856,5 +867,13 @@ export class TesteComponent implements OnInit {
       `${rank[2].nome} (${rank[2].pontos.toFixed(2)}%). ${rank[3].nome} (${rank[3].pontos.toFixed(2)}%)`);
   }
 
-
+  private mostraResultado(): void {
+    let msg = 'Seu resultado com os percentuais de compatibilidade são: ';
+    this.metodologias = this.metodologias.sort((m1, m2) =>
+      m2.percentual - m1.percentual);
+    this.metodologias.forEach((metodologia) => {
+      msg += metodologia.nome + ' - ' + metodologia.percentual.toFixed(2) + ' ';
+    });
+    window.alert(msg);
+  }
 }
