@@ -1,3 +1,4 @@
+import { DevcompComponent } from './devcomp/devcomp.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PdsComponent } from './pds/pds.component';
@@ -6,7 +7,7 @@ import { XpComponent } from './xp/xp.component';
 import { KanbanComponent } from './kanban/kanban.component';
 import { CascataComponent } from './cascata/cascata.component';
 import { TesteComponent } from './teste/teste.component';
-
+import {RupComponent} from './rup/rup.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,14 @@ const routes: Routes = [
   {
     path: 'cascata',
     component: CascataComponent
+  },
+  {
+    path:'devcomp',
+    component: DevcompComponent
+  },
+  {
+    path:'rup',
+    component: RupComponent
   },
   {
     path: 'teste',
