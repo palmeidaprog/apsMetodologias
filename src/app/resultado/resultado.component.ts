@@ -7,17 +7,16 @@ import {Metodologia} from '../metodologia';
   styleUrls: ['./resultado.component.css']
 })
 export class ResultadoComponent implements OnInit {
-  resultados: Array<Metodologia>;
+  array: Array<string>;
 
   constructor() {
-    this.resultados = JSON.parse(localStorage.getItem('resultado'));
-    this.resultados = this.resultados.sort((m1, m2) =>
-      m2.percentual - m1.percentual);
+    this.array = JSON.parse(localStorage.getItem('lista'));
+    // this.array = this.resultados.sort((m1, m2) =>
+    //   m2.percentual - m1.percentual);
     console.log('const');
   }
 
   ngOnInit(): void {
-
     console.log('ok');
   }
 

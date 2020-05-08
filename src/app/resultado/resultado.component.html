@@ -14,12 +14,12 @@
     <mat-card-content class="my-card-content">
       <br>
       <div class="centralize">
-        <ul>
-          <li style="color: black" *ngFor="let resultado of resultados">{{resultado.nome}}
-            {{resultado.percentual}}</li>
-        </ul>
+      <div style="display: flex; flex-direction: column; justify-content: center">
+        <h2>Seu resultado com os percentuais de compatibilidade são: </h2>
+        <br>
+          <h3 style="color: black" *ngFor="let resultado of array">{{resultado}}</h3>
       </div>
-
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

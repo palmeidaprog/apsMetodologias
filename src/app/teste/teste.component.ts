@@ -730,6 +730,7 @@ export class TesteComponent implements OnInit {
       this.cascata.percentual = 100;
       this.calculaPercentuais();
       this.mostraResultado();
+      this.router.navigate(['/resultado'])
       return;
     }
 
@@ -839,7 +840,8 @@ export class TesteComponent implements OnInit {
     this.cascata.probabilidadeResposta = this.probabilidadeCtrl.value;
 
     this.calculaPercentuais();
-    // this.router.navigate(['/resultado']);
+     this.mostraResultado();
+    this.router.navigate(['/resultado']);
   }
 
   calculaPercentuais(): void {
@@ -850,7 +852,7 @@ export class TesteComponent implements OnInit {
       metodologia.percentual = metodologia.pontos / total * 100;
     });
     localStorage.setItem('resultado', JSON.stringify(this.metodologias));
-    this.mostraResultado();
+     this.mostraResultado();
   }
 
   private converteBoolean(valor: string): Booleana {
@@ -869,11 +871,14 @@ export class TesteComponent implements OnInit {
 
   private mostraResultado(): void {
     let msg = 'Seu resultado com os percentuais de compatibilidade são: ';
+    const array = [];
     this.metodologias = this.metodologias.sort((m1, m2) =>
       m2.percentual - m1.percentual);
     this.metodologias.forEach((metodologia) => {
       msg += metodologia.nome + ' - ' + metodologia.percentual.toFixed(2) + ' ';
+      array.push(metodologia.nome + ' - ' + metodologia.percentual.toFixed(2) + ' ');
     });
-    window.alert(msg);
+    localStorage.setItem('lista', JSON.stringify(array));
+    //window.alert(msg);
   }
 }
