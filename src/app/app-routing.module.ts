@@ -10,6 +10,7 @@ import { TesteComponent } from './teste/teste.component';
 import {RupComponent} from './rup/rup.component';
 import {ResultadoComponent} from './resultado/resultado.component';
 import {ApresentacaoComponent} from './apresentacao/apresentacao.component'
+import {CapaComponent} from "./capa/capa.component";
 
 const routes: Routes = [
   {
@@ -33,11 +34,11 @@ const routes: Routes = [
     component: CascataComponent
   },
   {
-    path:'devcomp',
+    path: 'devcomp',
     component: DevcompComponent
   },
   {
-    path:'rup',
+    path: 'rup',
     component: RupComponent
   },
   {
@@ -50,11 +51,15 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: PdsComponent
+    component: CapaComponent
   },
   {
-    path:'apresentacao',
-    component:ApresentacaoComponent
+    path: 'apresentacao',
+    component: ApresentacaoComponent
+  },
+  {
+    path: 'capa',
+    component: CapaComponent
   }
 ];
 
